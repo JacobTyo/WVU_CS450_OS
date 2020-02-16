@@ -1,0 +1,34 @@
+.TH "modules/extFuncs.h" 3 "Wed Apr 27 2016" "MPX Group 9 - Phishing for Cookies" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+modules/extFuncs.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <core/serial\&.h>\fP
+.br
+\fC#include <core/io\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBprint_int\fP (int printme)"
+.br
+.ti -1c
+.RI "int \fBchkatoi\fP (char *number)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int chkatoi (char * number)"
+The chkatoi function will make sure than a character array being passed to the atoi function contains only integers\&. Otherwise it will thrown an error\&. 
+.SS "void print_int (int printme)"
+The print_int function will print an integer of any length to the screen\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MPX Group 9 - Phishing for Cookies from the source code\&.

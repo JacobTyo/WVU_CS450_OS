@@ -1,0 +1,66 @@
+.TH "context" 3 "Thu Apr 7 2016" "MPX Group 9 - Phishing for Cookies" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+context \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <processControl\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "u32int \fBgs\fP"
+.br
+.ti -1c
+.RI "u32int \fBfs\fP"
+.br
+.ti -1c
+.RI "u32int \fBes\fP"
+.br
+.ti -1c
+.RI "u32int \fBds\fP"
+.br
+.ti -1c
+.RI "u32int \fBedi\fP"
+.br
+.ti -1c
+.RI "u32int \fBesi\fP"
+.br
+.ti -1c
+.RI "u32int \fBebp\fP"
+.br
+.ti -1c
+.RI "u32int \fBesp\fP"
+.br
+.ti -1c
+.RI "u32int \fBebx\fP"
+.br
+.ti -1c
+.RI "u32int \fBedx\fP"
+.br
+.ti -1c
+.RI "u32int \fBecx\fP"
+.br
+.ti -1c
+.RI "u32int \fBeax\fP"
+.br
+.ti -1c
+.RI "u32int \fBeip\fP"
+.br
+.ti -1c
+.RI "u32int \fBcs\fP"
+.br
+.ti -1c
+.RI "u32int \fBeflags\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This context structure is used for context switching\&. The variables contained within this struct are: gs, fs, es, ds - data segment registers edi esi, ebp, esp, ebx, edx, ecx, eax - 32-bit general-purpose registers eip - instruction pointer cs - code segment eflags - a 32-bit flags register containing groups of flags 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MPX Group 9 - Phishing for Cookies from the source code\&.

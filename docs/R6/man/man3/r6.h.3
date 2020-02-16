@@ -1,0 +1,215 @@
+.TH "modules/r6.h" 3 "Wed Apr 27 2016" "MPX Group 9 - Phishing for Cookies" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+modules/r6.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBboot\fP"
+.br
+.ti -1c
+.RI "struct \fBdir\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBboot\fP \fBboot\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBdir\fP \fBdir\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBlaunchInterface\fP ()"
+.br
+.ti -1c
+.RI "void \fBgetDirListing\fP ()"
+.br
+.ti -1c
+.RI "\fBdir\fP \fBgetDir\fP (int i)"
+.br
+.ti -1c
+.RI "int \fBopenFileIfExists\fP ()"
+.br
+.ti -1c
+.RI "void \fBprintUsage\fP ()"
+.br
+.ti -1c
+.RI "void \fBprintBoot\fP ()"
+.br
+.ti -1c
+.RI "void \fBprintRoot\fP ()"
+.br
+.ti -1c
+.RI "void \fBchangeDir\fP ()"
+.br
+.ti -1c
+.RI "void \fBlistDir\fP ()"
+.br
+.ti -1c
+.RI "void \fBlsal\fP ()"
+.br
+.ti -1c
+.RI "void \fBlsl\fP ()"
+.br
+.ti -1c
+.RI "void \fBlsa\fP ()"
+.br
+.ti -1c
+.RI "void \fBls\fP (char *arg)"
+.br
+.ti -1c
+.RI "void \fBtype\fP ()"
+.br
+.ti -1c
+.RI "void \fBrnm\fP ()"
+.br
+.ti -1c
+.RI "void \fBloadBootSector\fP ()"
+.br
+.ti -1c
+.RI "unsigned int \fBswap16\fP (unsigned char byte1, unsigned char byte2)"
+.br
+.ti -1c
+.RI "unsigned int \fBswap24\fP (unsigned char byte1, unsigned char byte2, unsigned char byte3)"
+.br
+.ti -1c
+.RI "unsigned int \fBswap32\fP (unsigned char byte1, unsigned char byte2, unsigned char byte3, unsigned char byte4)"
+.br
+.ti -1c
+.RI "void \fBsetRoot\fP ()"
+.br
+.ti -1c
+.RI "void \fBpwd\fP ()"
+.br
+.ti -1c
+.RI "void \fBreadFAT\fP ()"
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.ti -1c
+.RI "void \fBclearDirListing\fP ()"
+.br
+.ti -1c
+.RI "void \fBprintAttributes\fP (int attribute)"
+.br
+.ti -1c
+.RI "void \fBgetAllDirs\fP ()"
+.br
+.ti -1c
+.RI "void \fBexportFile\fP (int inloc)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "FILE * \fBfp\fP"
+.br
+.ti -1c
+.RI "\fBboot\fP \fBbootSector\fP"
+.br
+.ti -1c
+.RI "unsigned char \fBbuffer\fP [1500000]"
+.br
+.ti -1c
+.RI "int \fBFAT\fP [3072]"
+.br
+.ti -1c
+.RI "\fBdir\fP \fBcwd\fP"
+.br
+.ti -1c
+.RI "\fBdir\fP \fBrootDir\fP"
+.br
+.ti -1c
+.RI "char * \fBfname\fP"
+.br
+.ti -1c
+.RI "\fBdir\fP \fBdirListing\fP [225]"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBboot\fP \fBboot\fP"
+This boot struct typedef is in place in order to allow for placing a pointer to the boot structure, inside of the struct definition of the boot\&. 
+.SS "typedef struct \fBdir\fP \fBdir\fP"
+This dir struct typedef is in place in order to allow for placing a pointer to the dir structure, inside of the struct definition of the dir\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void changeDir ()"
+The changeDir function is used to change the directory 
+.SS "void clear ()"
+The clear function is used to clear the current display window 
+.SS "void clearDirListing ()"
+The clearDirListing function is used to clear the directory listing array 
+.SS "void exportFile (int inloc)"
+The exportFile function takes the location of a directory entry in the dirListing variable, the exports the selected file to the host with the same file name\&. 
+.SS "void getAllDirs ()"
+The getAllDirs function is used to get all of the values in a directory 
+.SS "\fBdir\fP getDir (int i)"
+The getDir function is used to populate the dir structure 
+.SS "void getDirListing ()"
+The getDirListing function is used to get all values in the directory 
+.SS "void launchInterface ()"
+The launchInterface function is used to begin user input/polls for user functions 
+.SS "void listDir ()"
+The listDir function is used to list the contents of the directory 
+.SS "void loadBootSector ()"
+The loadBootSector function is used to load in the contents of the boot sector into the boot structure 
+.SS "void ls (char * arg)"
+The ls function is used to list all the current directory names, with the potential for a wildcard serach (e\&.g\&. \&.*TXT) 
+.SS "void lsa ()"
+The lsa function is used to list all the file names (including hidden) 
+.SS "void lsal ()"
+The lsal function is used to lists all files (hidden included) in long format 
+.SS "void lsl ()"
+The lsl function is used to list the long file info (non hidden, starting cluster, name, attr, size) 
+.SS "int openFileIfExists ()"
+The openFileIfExists function is used to verify that the file that is being opened exists 
+.SS "void printAttributes (int attribute)"
+The printAttributes function is used to print the file attributes (read, hidden, system, subdir) 
+.SS "void printBoot ()"
+The printBoot function is used to print out the contents of the boot sector 
+.SS "void printRoot ()"
+The printRoot function is used to print out the contents of the root sector 
+.SS "void printUsage ()"
+The printUsage function is used to print out the proper user input format 
+.SS "void pwd ()"
+The pwd function is used to print the current working directory 
+.SS "void readFAT ()"
+The readFAT function is used to read the FAT table into a separate FAT[] array 
+.SS "void rnm ()"
+The rnm function is used to rename the file name 
+.SS "void setRoot ()"
+The setRoot function is used to set the directory to ROOT 
+.SS "unsigned int swap16 (unsigned char byte1, unsigned char byte2)"
+The swap16 function is used to swap the order of 2 bytes 
+.SS "unsigned int swap24 (unsigned char byte1, unsigned char byte2, unsigned char byte3)"
+The swap24 function is used to swap the order of 3 bytes 
+.SS "unsigned int swap32 (unsigned char byte1, unsigned char byte2, unsigned char byte3, unsigned char byte4)"
+The swap32 function is used to swap the order of 4 bytes 
+.SS "void type ()"
+The type function is used to list all the file names (including hidden) 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MPX Group 9 - Phishing for Cookies from the source code\&.

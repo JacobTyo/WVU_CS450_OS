@@ -1,0 +1,59 @@
+.TH "dir" 3 "Wed Apr 27 2016" "MPX Group 9 - Phishing for Cookies" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+dir \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <r6\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "unsigned int \fBattribute\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBreserved\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBcreateTime\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBcreateDate\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBlastAccess\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBlWriteTime\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBlWriteDate\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBfirstCluster\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBstartingLoc\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsize\fP"
+.br
+.ti -1c
+.RI "unsigned char \fBname\fP [9]"
+.br
+.ti -1c
+.RI "unsigned char \fBextension\fP [4]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The directory structure contains information about a certain directory\&. This block consists of the following variables: unsigned int attribute: shows file attributes (read, hidden, system, subdir) reserved: reserved createTime: time of file creation createDate: date of file creation lastAccess: date of last access lWriteTime: last write time lWriteDate: last write date firstCluster: first logical cluster location
+.PP
+uint32_t size: Total directory size in bytes unsigned char name[9]: directory name unsigned char extension[4]: directory extension 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MPX Group 9 - Phishing for Cookies from the source code\&.

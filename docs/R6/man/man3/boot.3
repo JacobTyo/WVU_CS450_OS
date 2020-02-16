@@ -1,0 +1,63 @@
+.TH "boot" 3 "Wed Apr 27 2016" "MPX Group 9 - Phishing for Cookies" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+boot \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <r6\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "unsigned int \fBbps\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBspc\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBnumRS\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBnumFC\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBmaxNumRDE\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBnumSec\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBnumSecPerFAT\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBspt\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBnumHeads\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBnumSecFAT\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBvID\fP"
+.br
+.ti -1c
+.RI "unsigned char \fBsig\fP"
+.br
+.ti -1c
+.RI "unsigned char \fBlabel\fP [12]"
+.br
+.ti -1c
+.RI "unsigned char \fBfsType\fP [9]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The boot structure contains the boot sector information\&. This block consists of the following variables: unsigned int bps: Bytes per Sector spc: Sectors per Cluster numRS: Number of Reserved Sectors numFC: Number of FAT Copies maxNumRD: Max Number of Root Directory Entries numSec: Total # of Sectors in the File System numSecPerFAT: Number of Sectors per FAT spt: Sectors per track numHeads: Number of heads numSecFAT: Total sector count for FAT32 vID: Volume ID unsigned char sig: Boot Signature unsigned char *label: Volume Label unsigned char *fsType: File System Type 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MPX Group 9 - Phishing for Cookies from the source code\&.

@@ -1,0 +1,64 @@
+.TH "modules/syscall.h" 3 "Wed Apr 27 2016" "MPX Group 9 - Phishing for Cookies" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+modules/syscall.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'processControl\&.h'\fP
+.br
+\fC#include 'queues\&.h'\fP
+.br
+\fC#include 'r3procs\&.h'\fP
+.br
+\fC#include 'mpx_supt\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "u32int * \fBsys_call\fP (\fBcontext\fP *registers)"
+.br
+.ti -1c
+.RI "void \fByield\fP ()"
+.br
+.ti -1c
+.RI "void \fBloadr3\fP ()"
+.br
+.ti -1c
+.RI "void \fBmakeproc1\fP ()"
+.br
+.ti -1c
+.RI "void \fBmakeproc2\fP ()"
+.br
+.ti -1c
+.RI "void \fBmakeproc3\fP ()"
+.br
+.ti -1c
+.RI "void \fBmakeproc4\fP ()"
+.br
+.ti -1c
+.RI "void \fBmakeproc5\fP ()"
+.br
+.ti -1c
+.RI "\fBpcb\fP * \fBgetNextProcess\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBparam\fP \fBparams\fP"
+.br
+.ti -1c
+.RI "\fBpcb\fP * \fBcop\fP"
+.br
+.ti -1c
+.RI "\fBcontext\fP * \fBgcontext\fP"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MPX Group 9 - Phishing for Cookies from the source code\&.

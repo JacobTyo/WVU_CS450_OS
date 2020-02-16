@@ -1,0 +1,119 @@
+.TH "modules/mcb.h" 3 "Thu Apr 7 2016" "MPX Group 9 - Phishing for Cookies" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+modules/mcb.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'extFuncs\&.h'\fP
+.br
+\fC#include 'string\&.h'\fP
+.br
+\fC#include 'system\&.h'\fP
+.br
+\fC#include 'mem/heap\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBcmcb\fP"
+.br
+.ti -1c
+.RI "struct \fBlmcb\fP"
+.br
+.ti -1c
+.RI "struct \fBlist\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBcmcb\fP \fBcmcb\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBlmcb\fP \fBlmcb\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBlist\fP \fBlist\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmemoryManager\fP (char *args)"
+.br
+.ti -1c
+.RI "void \fBinitializeHeap\fP (u32int size)"
+.br
+.ti -1c
+.RI "void \fBinitLists\fP (u32int size)"
+.br
+.ti -1c
+.RI "u32int \fBallocate\fP (u32int size)"
+.br
+.ti -1c
+.RI "u32int \fBfreeMemory\fP (u32int ba)"
+.br
+.ti -1c
+.RI "void \fBmerge\fP ()"
+.br
+.ti -1c
+.RI "void \fBshowAllocated\fP ()"
+.br
+.ti -1c
+.RI "void \fBshowFree\fP ()"
+.br
+.ti -1c
+.RI "int \fBisEmpty\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBlist\fP \fBfreeList\fP"
+.br
+.ti -1c
+.RI "\fBlist\fP \fBallocatedList\fP"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBcmcb\fP \fBcmcb\fP"
+This cmcb struct typedef is in place in order to allow for placing a pointer to the cmcb structure, inside of the struct definition of the cmcb\&. 
+.SS "typedef struct \fBlist\fP \fBlist\fP"
+This list struct typedef is in place in order to allow for placing a pointer to the list structure, inside of the struct definition of the cmcb 
+.SS "typedef struct \fBlmcb\fP \fBlmcb\fP"
+This lmcb struct typedef is in place in order to allow for placing a pointer to the lcmb structure, inside of the struct definition of the cmcb 
+.SH "Function Documentation"
+.PP 
+.SS "u32int allocate (u32int size)"
+The allocate function is used to allocated new memory control blockes from the Heap using the first-fit method\&. 
+.SS "u32int freeMemory (u32int ba)"
+The freeMemory function is used to free a particular block of memory that was previously allocated by removing it from the allocated list and placing it into the free list\&. 
+.SS "void initializeHeap (u32int size)"
+The initializeHeap function initailizes the Heap to a size defined in kmain 
+.SS "void initLists (u32int size)"
+The initLists function initializes the Free and Allocated lists to the size defined in kmain\&. 
+.SS "int isEmpty ()"
+The isEmpty function will return true of false based on whether the heap contains ONLY free memory\&. 
+.SS "int memoryManager (char * args)"
+The memoryManager function acts as the main interface between the commhand and itself\&. This function takes the arguements passed to it as the input, and returns an integer indicating success or error code 
+.SS "void merge ()"
+The merge function checks to see if there are any free blocks adjacent to one another\&. If so it will then merge the adjacent blocks into one large free block\&. 
+.SS "void showAllocated ()"
+The showAllocated function traverses the Allocated list and shows the address of each block in the list along with its corresponding size\&. 
+.SS "void showFree ()"
+The showFree function traverses the Free list and displays the address of each block in the list along with its corresponding size\&. 
+.SH "Variable Documentation"
+.PP 
+.SS "\fBlist\fP freeList"
+Gloabal variables for the free list and allocated list\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MPX Group 9 - Phishing for Cookies from the source code\&.

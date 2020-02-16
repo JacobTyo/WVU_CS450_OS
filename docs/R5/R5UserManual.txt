@@ -1,0 +1,295 @@
+====================================================================================
+                                      USER MANUAL
+=====================================================================================
+This is the manual page for the MPX OS Version
+   -If you are running a different version of MPX OS please view the documentation for
+   the specific version you are using.
+   
+=====================================================================================
+                                  READING MANUAL PAGES
+=====================================================================================
+Manual pages are intended as a quick reference for people who have an understanding of technology.
+   -For more information about this technology, look in the Programmers'Manual.
+   
+======================================================================================
+                                SECTION 1: USER COMMANDS
+======================================================================================
+
+NAME
+	version - print current system version
+	
+SYNOPSIS
+	version
+	
+DESCRIPTION
+	Version is a means of providing the user with information about the current
+	system in use via the command line.
+	
+EXAMPLES
+	version
+		MPX R1 (1/27/2016)
+		
+SEE ALSO
+    NONE
+
+
+
+NAME
+	help - prints list of available commands and a brief description of each
+	
+SYNOPSIS
+	help [arguement]
+
+	
+DESCRIPTION
+	Help is a means of providing the user with a list of avaiable commands and
+	usage instructions for each
+	
+EXAMPLES
+	help
+		Commands avaliable are:
+		help
+		version
+		date
+		shutdown
+		exit
+		pcb
+
+	help version
+		Usage: version
+		Description: The version command displays the current version of the MPX operating system
+		Arguments: none
+
+	help date
+		Usage: data [ARGUEMENT] [MM-DD-YR: HH:MM:SS]
+		Description: the date command can be use to set or check the current system time
+		Arguments: --set
+
+	help shutdown
+		Usage: shutdown
+		Description: The shutdown command will halt all processes and shut the operating system down.
+
+	help pcb
+		Usage: pcb
+		Description: The pcb command is used for manipulating the pcb
+		Arguments:
+			--create NAME CLASS PRIORITY
+			--delete NAME
+			--block NAME
+			--unblock NAME
+			--suspend NAME
+			--resume NAME
+			--show NAME
+			--show-all
+			--show-ready
+			--show-blocked
+			--set-priority NAME PRIORITY
+			
+		
+SEE ALSO
+	NONE
+    
+
+
+NAME
+	shutdown - allows system to be shutdown
+	
+SYNOPSIS
+	shutdown
+	
+DESCRIPTION
+	Shutdown (or exit) is a means for the user to properly shutdown the 
+	system by exiting the command handler loop
+	
+EXAMPLES
+	shutdown
+		
+SEE ALSO
+	exit
+
+
+
+NAME
+	date - Allows users to view or set the current system date and time
+SYNOPSIS
+	date [arguements] [MM-DD-YY HH:MM:SS]
+	date --set [MM-DD-YY HH:MM:SS]
+	
+DESCRIPTION
+	Date is a means for the user to check or set the current system date and time.
+	Because date allows the user to check and set the time as well as the date, it
+	eliminates the need for a time command.
+	
+EXAMPLES
+	date
+		02-02-16 09:07:32 (MM-DD-YR HH:MM:SS)
+
+	date --set 01-01-01 00:00:00
+		sets current date to January 1st, 2001 and time to midnight
+SEE ALSO
+	NONE
+
+
+
+NAME
+	pcb - Allows the user to manipulate the pcb
+
+SYNOPSIS
+
+	pcb [arguments]
+	pcb --create [pcb name] [class] [priority]
+	    class: 0 = system
+	    class: 1 = application
+	    priority: 0(high)-9(low)
+	pcb --delete [pcb name]
+	pcb --block [pcb name]
+	pcb --unblock [pcb name]
+	pcb --suspend [pcb name]
+	pcb --resmue [pcb name]
+	pcb --show [pcb name]
+	pcb --show-ready
+	pcb --show-blocked
+	pcb --show-all
+	pcb --set-priority
+
+DESCRIPTION
+	PCB is a means for the user (until a scheduler and dispatcer is created) to manipulate the pcb by means of creating, deleting, blocking, unblocking, suspending, resuming, and showing pcbs in the system.
+
+EXAMPLES
+	pcb --create meowmeow 0 1
+	    creates a new pcb with the name meowmeow with a class 0(system) with a priority of 1.
+	    
+	pcb --delete meowmeow
+	    deletes the pcb named meowmeow. Returns an error if the pcb does not exist
+
+	pcb --block meowmeow
+	    removes the pcb named meowmeow from the ready queue, changes said pcb's running state to blocked, and reinserts the pcb into the blocked queue. Returns an error if pcb does not exist or if pcb is already in blocked state.
+
+	pcb --unblock meowmeow
+	    removes the pcb named meowmeow from the ready queue, changes said pcb's running state to ready, and reinserts the pcb into the ready queue. Returns an error if the pcb does not exist or if pcb is already in the ready state.
+
+	pcb --suspend meowmeow
+	    changes the status of the pcb named meowmeow to suspended. Returns an error if the pcb does not exist or if the pcb's state is already suspended.
+
+	pcb --resume meowmeow
+	    changes the status of the pcb named meowmeow to unsuspended. Returns an error if the pcb does not exist or if the pcb's state is already unsuspended.
+
+	pcb --show meowmeow
+	    Name: meowmeow
+	    Class: System
+	    State: Running
+	    Status: Not suspended
+	    Priority: 1
+	    
+	    displays the pcb named meowmeow, includes said pcb's name, class, state, status, and priority.
+
+	pcb --show-ready
+	    displays all the pcbs in the ready queue; includes the pcb's name, class, state, status, and priority in the same format as --show [pcb name]
+
+	pcb --show-blocked
+	    displays all the pcbs in the blocked queue; includes the pcb's name, class, state, status, and priority in the same format as --show [pcb name]
+
+	pcb --show-all
+	    displays all the pcbs in both the ready and blocked queue; includes the pcb's name, class, state, status, and priority in the same format as --show [pcb name]
+
+	pcb --set-priority meowmeow 4
+	    sets the pcb named meowmeow's priority to 4. Returns an error if pcb does not exist, if the pcb's priority is the same as the user specified. 
+	     
+SEE ALSO
+    NONE
+
+
+
+NAME
+	loadr3 - loads r3 processes
+	
+SYNOPSIS
+	loadr3
+	
+DESCRIPTION
+	loadr3 will load all the r3 processes into memory in a suspended ready state at any priority of the users choosing
+	
+EXAMPLES
+	loadr3
+	
+SEE ALSO
+	NONE
+	
+
+
+NAME
+	exit - allows the user to shutdown the system
+	
+SYNOPSIS
+	exit
+	
+DESCRIPTION
+	exit (or shutdown) allows the user to properly shutdown the system by exiting 
+	the command handler loop
+	
+EXAMPLES
+	exit
+		klogv: Starting system shutdown procedure...
+		klogv: Shutdown complete. You may now turn off the machine.
+		(QEMU: C-a x)
+	
+SEE ALSO
+	shutdown
+
+
+
+NAME
+	showAllocated - Displays the allocated Memory Control Blocks
+	
+SYNOPSIS
+	showAllocated
+	
+DESCRIPTION
+	showAllocated is a means to travere through the Allocated list and displays the address of each block in the list and its corresponding size.
+	
+EXAMPLES
+	showAllocated
+		$showAllocated
+		Size: 2112
+		Begining Address: 218103864
+
+		Size: 2112
+		Begining Address: 218106040
+
+		Size: 2112
+		Begining Address: 218108216
+
+		Size: 2112
+		Begining Address: 218110392
+
+		Size: 2112
+		Begining Address: 218112568
+
+		Size: 2112
+		Begining Address: 218114744
+	
+		Size: 2112
+		Begining Address: 218116920
+		
+SEE ALSO
+    NONE
+
+
+
+NAME
+	showFree - Displays the Free memory
+	
+SYNOPSIS
+	showFree
+	
+DESCRIPTION
+	showFree is a means to traverse through the Free list and display the address of each block in the list along with its corresponding size.
+	
+EXAMPLES
+	showFree
+		$showFree
+		Size: 34768
+		Begining Address: 218119096
+		
+SEE ALSO
+    NONE

@@ -1,0 +1,42 @@
+.TH "cmcb" 3 "Wed Apr 27 2016" "MPX Group 9 - Phishing for Cookies" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cmcb \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mcb\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBallocated\fP"
+.br
+.ti -1c
+.RI "char \fBname\fP [31]"
+.br
+.ti -1c
+.RI "u32int \fBbeginningAddress\fP"
+.br
+.ti -1c
+.RI "u32int \fBsize\fP"
+.br
+.ti -1c
+.RI "\fBlmcb\fP * \fBthisLmcb\fP"
+.br
+.ti -1c
+.RI "\fBcmcb\fP * \fBnextcmcb\fP"
+.br
+.ti -1c
+.RI "\fBcmcb\fP * \fBprevcmcb\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The cmcb structure is a Complete Memory Control Block\&. This block consists of the following variable: int allocated - state of block, is allocated (1), and not allocated (0)\&. int size - the size of the memory control block char name[31] - the name of the complete memory control block u32int beginningAddress - the beginning addresss of the memory control block lmcb *thisLmcb - a pointer to the lcmb of the corresponding cmcb cmcb *nextcmcb - a pointer to the next cmcb of the same state cmcb *prevcmcb - a pointer to the previous cmcb of the same state 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MPX Group 9 - Phishing for Cookies from the source code\&.

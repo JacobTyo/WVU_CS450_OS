@@ -1,0 +1,117 @@
+.TH "modules/processControl.h" 3 "Wed Apr 27 2016" "MPX Group 9 - Phishing for Cookies" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+modules/processControl.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <string\&.h>\fP
+.br
+\fC#include 'mpx_supt\&.h'\fP
+.br
+\fC#include 'extFuncs\&.h'\fP
+.br
+\fC#include 'queues\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBpcb\fP"
+.br
+.ti -1c
+.RI "struct \fBcontext\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBpcb\fP \fBpcb\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBcontext\fP \fBcontext\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBprocessControl\fP (char *args)"
+.br
+.ti -1c
+.RI "int \fBCreatePCB\fP (char *name, char *class, char *priority)"
+.br
+.ti -1c
+.RI "int \fBDeletePCB\fP (char *name)"
+.br
+.ti -1c
+.RI "\fBpcb\fP * \fBAllocatePCB\fP ()"
+.br
+.ti -1c
+.RI "int \fBFreePCB\fP (\fBpcb\fP *fpcb)"
+.br
+.ti -1c
+.RI "\fBpcb\fP * \fBSetupPCB\fP (char *name, int class, int priority)"
+.br
+.ti -1c
+.RI "int \fBpcbNameCheck\fP (char *name)"
+.br
+.ti -1c
+.RI "int \fBBlockPCB\fP (char *name)"
+.br
+.ti -1c
+.RI "int \fBUnblockPCB\fP (char *name)"
+.br
+.ti -1c
+.RI "int \fBsuspendPCB\fP (char *name)"
+.br
+.ti -1c
+.RI "int \fBresumePCB\fP (char *name)"
+.br
+.ti -1c
+.RI "int \fBShowPCB\fP (char *name)"
+.br
+.ti -1c
+.RI "int \fBSetPriority\fP (char *name, char *priority)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBcontext\fP \fBcontext\fP"
+This context struct typedef is in place in order to allow for creating a context without the use of struct\&. 
+.SS "typedef struct \fBpcb\fP \fBpcb\fP"
+This pcb struct typedef is in place in order to allow for placing a pointer to the pcb structure, inside of the struct definition of the pcb\&. 
+.SH "Function Documentation"
+.PP 
+.SS "\fBpcb\fP* AllocatePCB ()"
+The AllocatePCB function is used to allocate memory for a new PCB\&. No argument is taken, but a pointer to the newly allocated memory is returned\&. 
+.SS "int BlockPCB (char * name)"
+The BlockPCB function takes a character pointer to a character array (string) and then finds the PCB\&. If the PCB exists the function then places the PCB in the blocked state and reinserts it into the appropriate queue 
+.SS "int CreatePCB (char * name, char * class, char * priority)"
+The CreatePCB Function takes a character pointer to the name, class, and priority of the pcb to be created as inputs, and returns an integer indicating success or error\&. This function checks for valid input and then create a new pcb with the input information and add it to the ready queue, in the ready, not suspended state\&. returned error integers: -1 -> input class or priority contians more than just numbers -2 -> class is a number other than 1 or 0 -3 -> priority is not between 0 and 9 -4 -> name is not of proper length or is not unique 
+.SS "int DeletePCB (char * name)"
+The DeletePCB function takes the name of a pcb in as input, then deletes the coresponding pcb and frees the associated memory\&. 
+.SS "int FreePCB (\fBpcb\fP * fpcb)"
+The FreePCB function is used to free memory that used to contain a PCB\&. A pointer to a PCB is passed into the function, and the memory is then freed\&. An integer is returned indicating success (0) or failure (else)\&. 
+.SS "int pcbNameCheck (char * name)"
+The pcbNameCheck function takes a character pointer to a character array (string) and then checks to see if it is a valid name for a PCB\&. 
+.SS "int processControl (char * args)"
+The processControl function acts as the main interface between the commhand and itself\&. This function takes the arguements passed to it as the input, and returns an integer indicating success or error code\&. 
+.SS "int resumePCB (char * name)"
+The resumePCB function takes a character pointer to a character array (string) and then finds the PCB\&. If the PCB exists the function changes the suspended state of the PCB to not suspended 
+.SS "int SetPriority (char * name, char * priority)"
+The SetPriority function takes two character pointers\&. One to a character array (string) and then finds the PCB and the other other is converted to an int adn then set the to priority\&. 
+.SS "\fBpcb\fP* SetupPCB (char * name, int class, int priority)"
+The SetupPCB funciton is used to create and initialize a new PCB with a name, class, priority, runningstate to ready, and suspendedstate to notsuspended\&. The function inputs and return follow: char \fIname - desired name of the new PCB (between 8 and 30 characters) int class - the desired process class int priority - the desired process priority return pcb\fP - the pointer to the newly created and initialized PCB\&. 
+.SS "int ShowPCB (char * name)"
+The ShowPCB function takes a character pointer to a character array (string) and then finds the PCB\&. If the PCB exists the function then calls on PrintPCB 
+.SS "int suspendPCB (char * name)"
+The suspendPCB function takes a character pointer to a character array (string) and then finds the PCB\&. If the PCB exists the function changes the suspended state of the PCB to suspended 
+.SS "int UnblockPCB (char * name)"
+The Unblock function takes a character pointer to a character array (string) and then finds the PCB\&. If the PCB exists the function places the PCB in the unblocked state and reinserts it into the appropriate queue 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MPX Group 9 - Phishing for Cookies from the source code\&.

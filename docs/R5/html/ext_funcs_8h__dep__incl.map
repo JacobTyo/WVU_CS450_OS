@@ -1,0 +1,10 @@
+<map id="modules/extFuncs.h" name="modules/extFuncs.h">
+<area shape="rect" id="node2" href="$mcb_8h.html" title="modules/mcb.h" alt="" coords="139,80,250,107"/>
+<area shape="rect" id="node5" href="$commhand_8h.html" title="modules/commhand.h" alt="" coords="218,453,369,480"/>
+<area shape="rect" id="node6" href="$process_control_8h.html" title="modules/processControl.h" alt="" coords="386,229,561,256"/>
+<area shape="rect" id="node7" href="$queues_8h.html" title="modules/queues.h" alt="" coords="432,304,560,331"/>
+<area shape="rect" id="node3" href="$mpx__supt_8h_source.html" title="modules/mpx_supt.h" alt="" coords="123,155,266,181"/>
+<area shape="rect" id="node4" href="$date_8h.html" title="modules/date.h" alt="" coords="94,304,205,331"/>
+<area shape="rect" id="node8" href="$syscall_8h.html" title="modules/syscall.h" alt="" coords="230,379,357,405"/>
+<area shape="rect" id="node9" href="$r3procs_8h.html" title="modules/r3procs.h" alt="" coords="233,229,362,256"/>
+</map>

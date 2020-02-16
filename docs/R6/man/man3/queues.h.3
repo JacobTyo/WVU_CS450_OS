@@ -1,0 +1,108 @@
+.TH "modules/queues.h" 3 "Wed Apr 27 2016" "MPX Group 9 - Phishing for Cookies" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+modules/queues.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <string\&.h>\fP
+.br
+\fC#include 'processControl\&.h'\fP
+.br
+\fC#include 'extFuncs\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBqueue\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBqueue\fP \fBqueue\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBpcb\fP \fBpcb\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit_queues\fP ()"
+.br
+.ti -1c
+.RI "void \fBInsertPCBReady\fP (\fBpcb\fP *p)"
+.br
+.ti -1c
+.RI "void \fBInsertPCBBlocked\fP (\fBpcb\fP *p)"
+.br
+.ti -1c
+.RI "int \fBRemovePCB\fP (\fBpcb\fP *p)"
+.br
+.ti -1c
+.RI "\fBpcb\fP * \fBFindPCB\fP (char *name)"
+.br
+.ti -1c
+.RI "void \fBPrintPCB\fP (\fBpcb\fP *\fBpcb\fP)"
+.br
+.ti -1c
+.RI "void \fBPrintReadyPCB\fP ()"
+.br
+.ti -1c
+.RI "void \fBPrintBlockedPCB\fP ()"
+.br
+.ti -1c
+.RI "void \fBclearQs\fP ()"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBqueue\fP \fBreadyq\fP"
+.br
+.ti -1c
+.RI "\fBqueue\fP \fBblockedq\fP"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBpcb\fP \fBpcb\fP"
+The typedef struct pcb allows for the use of pcb as a data type without having to type struct every time\&. 
+.SS "typedef struct \fBqueue\fP \fBqueue\fP"
+The typedef struct queue allows for the use of queue as a data type without having to type struct queue every time\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void clearQs ()"
+Clear all queues except for the commhand process\&. 
+.SS "\fBpcb\fP* FindPCB (char * name)"
+The FindPCB function takes in the name of a function and searches all queues for it\&. If an exact match to the function name is found, it will return the pointer to the pcb, otherwise it will return NULL\&. 
+.SS "void init_queues ()"
+The init_queues function initializes a ready and a blocked queue setting the count to zero, and the head and tail to NULL\&. 
+.SS "void InsertPCBBlocked (\fBpcb\fP * p)"
+The InsertPCBBlocked functino will insert the givin pcb at the end of the blocked queue\&. The blocked queue is a first in first out queue\&. 
+.SS "void InsertPCBReady (\fBpcb\fP * p)"
+The InsertPCBReady function will insert the givin pcb into the ready queue in the appropriate location\&. The ready queue is a priority queue\&. 
+.SS "void PrintBlockedPCB ()"
+The PrintBlockedPCB function traverses the blocked queue and calls PrintPCB for each pcb 
+.SS "void PrintPCB (\fBpcb\fP * pcb)"
+The PrintPCB function takes in a pcb and prints it out 
+.SS "void PrintReadyPCB ()"
+The PrintReadyPCB function traverses the ready queue and calls PrintPCB for each pcb 
+.SS "int RemovePCB (\fBpcb\fP * p)"
+The RemovePCB function will remove the pcb from whichever queue it is currently housed in\&. 
+.SH "Variable Documentation"
+.PP 
+.SS "\fBqueue\fP blockedq"
+The blockedq is the queue used by the operating system to keep track of the blocked processes\&. This is defined here to make it global\&. 
+.SS "\fBqueue\fP readyq"
+The readyq is the queue used by the operating system to keep track of the ready processes\&. This is defined here to make it global\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MPX Group 9 - Phishing for Cookies from the source code\&.

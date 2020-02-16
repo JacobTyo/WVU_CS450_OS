@@ -1,0 +1,51 @@
+.TH "pcb" 3 "Thu Apr 7 2016" "MPX Group 9 - Phishing for Cookies" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pcb \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <processControl\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char \fBname\fP [31]"
+.br
+.ti -1c
+.RI "int \fBclass\fP"
+.br
+.ti -1c
+.RI "int \fBpriority\fP"
+.br
+.ti -1c
+.RI "int \fBrunningstate\fP"
+.br
+.ti -1c
+.RI "int \fBsuspendedstate\fP"
+.br
+.ti -1c
+.RI "unsigned char \fBstack\fP [2048]"
+.br
+.ti -1c
+.RI "unsigned char * \fBstacktop\fP"
+.br
+.ti -1c
+.RI "unsigned char * \fBstackbase\fP"
+.br
+.ti -1c
+.RI "\fBpcb\fP * \fBnextpcb\fP"
+.br
+.ti -1c
+.RI "\fBpcb\fP * \fBprevpcb\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The pcb structure is a Process Control Block\&. This block consists of the follwing variables: char name[11] - the name of the Process Control Block int class - the process class (0 = system, 1 = application) int priority - integer between 0 and 9 representing the execution priority with 0 being the highest priority and 9 being the lowest priority\&. int runningstate - the processes ready(0), running(1), or blocked(2) state\&. int suspendedstate - the process suspended(1), or not suspended(0) state\&. char stack[4098] - the stack area of 1025 bytes\&. unsigned char *stacktop - the pointer to the top of the stack\&. unsigned char *stackbase - the pointer to the base of the stack\&. pcb *nextpcb - a pointer to the pcb next in line for execution\&. pcb *prevpcb - a pointer to the pcb previous in line for execution\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MPX Group 9 - Phishing for Cookies from the source code\&.

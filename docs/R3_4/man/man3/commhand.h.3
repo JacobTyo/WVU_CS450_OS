@@ -1,0 +1,62 @@
+.TH "modules/commhand.h" 3 "Fri Mar 18 2016" "MPX Group 9" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+modules/commhand.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <system\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <core/serial\&.h>\fP
+.br
+\fC#include <core/io\&.h>\fP
+.br
+\fC#include 'version\&.h'\fP
+.br
+\fC#include 'help\&.h'\fP
+.br
+\fC#include 'date\&.h'\fP
+.br
+\fC#include 'processControl\&.h'\fP
+.br
+\fC#include 'extFuncs\&.h'\fP
+.br
+\fC#include 'queues\&.h'\fP
+.br
+\fC#include 'syscall\&.h'\fP
+.br
+\fC#include 'mpx_supt\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBstart_commhand\fP ()"
+.br
+.ti -1c
+.RI "void \fBget_cmd\fP (int com, char *pcmd)"
+.br
+.ti -1c
+.RI "char * \fBsep_args\fP (char *cmd)"
+.br
+.ti -1c
+.RI "void \fBprint_cmd\fP ()"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void get_cmd (int com, char * pcmd)"
+The get_cmd function will get a line from the command line to be processed by the system\&. The input is the in of the system com device, and a char pointer to the array to store the input command in\&. 
+.SS "void print_cmd ()"
+The print_cmd command will simply print the current command to the screen\&. This was implemented for testing and is now dilapidated\&. 
+.SS "char* sep_args (char * cmd)"
+The sep_args function takes a character pointer as input, then separates the first word from the rest\&. This theoretically (and pragmatically) separates the command from its arguements for later processing in the system\&. The input is the character pointer to the string to be processed 
+.SS "void start_commhand ()"
+Start the interface for interacting with the user and the system\&. This function takes in the integer that allows for communication through outb, and returns an int which represents any error that may have occured\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MPX Group 9 from the source code\&.

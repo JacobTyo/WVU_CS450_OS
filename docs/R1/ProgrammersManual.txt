@@ -1,0 +1,257 @@
+========================================================================================
+PROGRAMMERS MANUAL
+========================================================================================
+This is the programmers manual page for the MPX OS Version R1.
+     	-This manual will contain all the information that is necessary for a programmer to
+     	manipulate this system. 
+     	-If you are running a different version of MPX OS please refer to the documentation
+     	for the specific version you are using.
+
+This manual will be organized by file.  The file name will be the section, and the
+contents will be the function call, function description, parameters, and any returned
+values.
+========================================================================================
+
+========================================================================================
+STRING.C
+========================================================================================
+FUNCTION CALL:
+	strlen
+
+DESCRIPTION:
+	Returns the length of a string as an integer.  Uses the null character (\0) as the
+	end of the string.
+
+PARAMETERS
+	const char *s - input string
+
+RETURN
+	int i - the length of the string
+
+----------------------------------------------------------------------------------------
+FUNCTION CALL:
+	strcpy
+
+DESCRIPTION:
+	Copies on string to another.
+
+PARAMETERS
+	const char *s1 - string to copy to
+	const char *s2 - string to copy from
+
+RETURN
+	char *s1 - the pointer to the newly copied string
+
+----------------------------------------------------------------------------------------
+FUNCTION CALL:
+	strcmp
+
+DESCRIPTION:
+	Compare two strings. 
+
+PARAMETERS
+	const char *s1 - first input string to compuare
+	const char *s2 - second input string to compare
+
+RETURN
+	int - returns 0 if strings are equal, other integer if they are not.
+
+----------------------------------------------------------------------------------------
+FUNCTION CALL:
+	atoi
+
+DESCRIPTION:
+	Convert an ASCII string to an integer.
+
+PARAMETERS
+	const char *s - string to be converted (expects a string of numbers only)
+
+RETURN
+	int num - the integer version of the input string
+
+========================================================================================
+COMMHAND.C
+========================================================================================
+FUNCTION CALL:
+	start_commhand
+
+DESCRIPTION:
+	Start the interface for interacting with the user and the system.  This function
+	is called from kmain.c and used to handle all user input. 
+
+PARAMETERS
+	int com - the serial port used for communication
+
+RETURN
+	int NOERROR - optional return for sending error/noerror back to kmain.
+
+----------------------------------------------------------------------------------------
+FUNCTION CALL:
+	getcmd
+
+DESCRIPTION:
+	Get a line from the command line.  This function is used to monitor the command
+	line for inputs, and after the user presses the enter key, this function changes
+	the memory which holds the current command to the latest input values.  
+
+PARAMETERS
+	int com - the serial port to get input from
+	char *pcmd - the pointer to the array to store the command in
+
+RETURN
+	NONE
+
+----------------------------------------------------------------------------------------
+FUNCTION CALL:
+	sep_args
+
+DESCRIPTION:
+	Separate the command from the arguments.  This function will take an input string
+	and then return only the arguements.  
+
+PARAMETERS
+	char *cmd - the command input to the system
+
+RETURN
+	char *pcmd_args - a pointer to the arguements of the input command
+
+----------------------------------------------------------------------------------------
+FUNCTION CALL:
+	print_cmd
+
+DESCRIPTION:
+	Print the string passed to the function.  This function just calls
+	serial_println()
+
+PARAMETERS
+	char *cmd - the string to be printed
+
+RETURN
+	NONE
+
+========================================================================================
+VERSION.C
+========================================================================================
+FUNCTION CALL:
+	version
+
+DESCRIPTION:
+	Print the current system version. 
+
+PARAMETERS
+	NONE
+
+RETURN
+	NONE
+
+========================================================================================
+DATE.C
+========================================================================================
+FUNCTION CALL:
+	date
+
+DESCRIPTION:
+	Get or set the date from the system.  
+
+PARAMETERS
+	char *args - pointer of arguements.  If empty, display date and time, if --set
+	flag is present, set the time and date.
+
+RETURN
+	NONE
+
+----------------------------------------------------------------------------------------
+FUNCTION CALL:
+	hex2ASCII
+
+DESCRIPTION:
+	convert a hex value to ascii 
+
+PARAMETERS
+	unsigned char dec - the hex number to be converted
+
+RETURN
+	unsigned char - the ascii number converted from the input hex
+
+----------------------------------------------------------------------------------------
+FUNCTION CALL:
+	ASCII2hex
+
+DESCRIPTION:
+	convert an ascii value to hex 
+
+PARAMETERS
+	char *ASCII - the ascii number to be converted
+
+RETURN
+	unsigned char - the hex number converted from the input ascii
+
+========================================================================================
+HELP.C
+========================================================================================
+FUNCTION CALL:
+	help
+
+DESCRIPTION:
+	Interface to the help menus.
+
+PARAMETERS
+	char *args - the input arguements, used to determine which function will be
+	ran.  
+
+RETURN
+	NONE
+
+----------------------------------------------------------------------------------------
+FUNCTION CALL:
+	version_help
+
+DESCRIPTION:
+	Display the help dialog for the version command 
+
+PARAMETERS
+	NONE
+
+RETURN
+	NONE
+
+----------------------------------------------------------------------------------------
+FUNCTION CALL:
+	shutdown_help
+
+DESCRIPTION:
+	Display the help dialog for the shutdown command 
+
+PARAMETERS
+	NONE
+
+RETURN
+	NONE
+
+----------------------------------------------------------------------------------------
+FUNCTION CALL:
+	date_help
+
+DESCRIPTION:
+	Display the help dialog for the date command 
+
+PARAMETERS
+	NONE
+
+RETURN
+	NONE
+
+----------------------------------------------------------------------------------------
+FUNCTION CALL:
+	 default_help
+
+DESCRIPTION:
+	Display the help dialog wlhen no arguement, or an invalid arguement is given 
+
+PARAMETERS
+	NONE
+
+RETURN
+	NONE
+
+----------------------------------------------------------------------------------------

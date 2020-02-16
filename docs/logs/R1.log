@@ -1,0 +1,33 @@
+WVU CS450 Group9 Project - R1 Change Log
+
+CURRENT PROJECT STATUS:
+(2/7/16 - jitschne) Added error handling for date --set functionality (no letters allowed)
+(2/5/16 - jtyo) Implemented checking for command buffer overflow.
+(2/4/16 - jtyo) Finalized for presentation.  Updated version, help, and date functions.  Completed programmers manual.  Revised Users manual.  Deleted unnecessary time files.
+(2/4/16- cgrillot) Created and added User Manual
+(2/3/16 - sshuff) Delete key implemented
+(2/3/16 - jitschne) Date/time set functionality added (use format: date --set MM-DD-YR HH:MM:SS)
+(2/01/16 - jitschne) Date/time get functionality added, help file updated for "date"
+(1/31/16 - sshuff) fixed a backspace error
+(1/31/16 - jtyo) returned missing files to repository
+(1/30/16 - sshuff)! fixed backspace. have spot open for up& down arrows but not sure what they need to actually do
+(1/30/16 - sshuff) fixed right and left arrow keys. Fixed a few input errors.
+(1/29/16 - jtyo) finished help handling.  Implemented command splitting, it is now in use.
+(1/29/16 - cgrillot) refined command spliting
+(1/29/16 - jtyo) added help handling for all current commands
+(1/29/16 - jtyo) added skeleton for command parsing (updated readme)
+(1/28/16 - sshuff) added initial files and gave us a fancy prompt
+(1/28/16 - sshuff) fixed imports added help command
+(1/27/16 - jtyo) removed commandlist because it was unneccessary. Added version to make file, and implemented in commhand, so it now works.
+(1/27/16 - jtyo) added commandlist.h to facilitate easily adding new command files to the command handler [may end up changing].  Added version.h and .c skelatons for implementation of version command.
+(1/23/16 - sshuff) updated the strcmp function, should match the whole string now
+(1/19/16 - jtyo) updated commhand to handle backspaces, line delimination, basic looping functionality.  However, for some reason (maybe because the strcmp function is falty?), the commhand will exit with any word starting with an e instead of the word exit.
+(1/19/16 - jtyo) cmd_handler renamed to commhand (to match project) and basic functionality has been obtained.
+(1/19/16 - jtyo) Working to add a cmd_handler module, very little has been done with this so far.  kmain was also updated to pull in input data one byte at a time, this needs to be ported to the command handler and command handling implemented.
+(1/17/16 - jtyo) Added strcmp() function. Operation has not been verified (especially what is returned if the strings do not match).
+(1/17/16 - jtyo) Added atoi() function, has been tested and verified to work.
+(1/17/16 - jtyo)! Added strcpy() function, has not been tested.
+(1/17/16 - jtyo) Added and confirmed strlen() function working.
+(1/17/16 - jtyo) All R1 initializations are complete and system boots successfully.
+(1/15/16 - jtyo) kmain.c has been modified and system can be booted successfully.
+
